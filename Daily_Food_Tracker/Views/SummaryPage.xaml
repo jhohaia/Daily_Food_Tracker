@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Daily_Food_Tracker.ViewModels"
+             x:Class="Daily_Food_Tracker.Views.SummaryPage"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:SummaryPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{StaticResource IconChart}" 
+                   FontFamily="FAS"
+                   Scale="15"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

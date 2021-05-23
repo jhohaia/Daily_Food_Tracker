@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:Daily_Food_Tracker.ViewModels"
+             x:Class="Daily_Food_Tracker.Views.FoodPage"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:FoodPageViewModel />
+    </ContentPage.BindingContext>
+    
+    <ListView 
+              ItemSelected="ListView_ItemSelected"
+              ItemTapped="ListView_ItemTapped"
+              CachingStrategy="RecycleElement"
+              BackgroundColor="Transparent"
+              ItemsSource="{Binding FoodGroups}"
+              IsGroupingEnabled="True"
+              GroupDisplayBinding="{Binding Key}"
+              HasUnevenRows="True"
+              SeparatorVisibility="None"
+              IsPullToRefreshEnabled="True"
+              IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+              RefreshCommand="{Binding RefreshCommand}"
+              RefreshControlColor="Green">
+        
+             
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Favourite" Clicked="MenuItem_Clicked"/>
+                        <MenuItem Text="Delete" IsDestructive="True"/>
+                    </ViewCell.ContextActions>
+                    <Grid Padding="10">
+                        <Frame CornerRadius="20"
+                               HasShadow="True">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding Image}"
+                                       WidthRequest="100"/>
+                                <StackLayout VerticalOptions="Center">
+                                    <Label Text='Name:'
+                                       FontSize="Large"
+                                       VerticalOptions="Center"/>
+                                    <Label Text="Calories: "
+                                       FontSize="Large"
+                                       VerticalOptions="Center"/>
+                                </StackLayout>
+                                <StackLayout VerticalOptions="Center">
+                                    <Label Text='{Binding FoodName}'
+                                       FontSize="Large"
+                                       VerticalOptions="Center"/>
+                                <Label Text="{Binding Calories}"
+                                       FontSize="Large"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"/>
+                             </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    
+</ContentPage>
+    
+    
+    

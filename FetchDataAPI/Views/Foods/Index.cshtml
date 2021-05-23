@@ -1,0 +1,141 @@
+﻿@model IEnumerable<FetchDataAPI.Models.Food>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Alcohol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Carbohydrates)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Calcium)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cholesterol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Calories)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kilojule)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Glucose)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Iron)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lactose)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Magnesium)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Potassium)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Selenium)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sodium)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Starch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sugars)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Water)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zinc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FoodName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alcohol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carbohydrates)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Calcium)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cholesterol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Calories)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kilojule)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Glucose)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Iron)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lactose)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Magnesium)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Potassium)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Selenium)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sodium)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Starch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sugars)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Water)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zinc)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FoodID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FoodID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FoodID })
+        </td>
+    </tr>
+}
+
+</table>

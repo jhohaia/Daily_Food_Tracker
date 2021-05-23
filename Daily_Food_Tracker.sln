@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daily_Food_Tracker.Android", "Daily_Food_Tracker.Android\Daily_Food_Tracker.Android.csproj", "{DF8A524D-3CD9-45FE-B0EB-0F06A6A78E45}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Daily_Food_Tracker", "Daily_Food_Tracker\Daily_Food_Tracker.csproj", "{3AEDF46E-EA1A-4B51-98A7-7B3962F741F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF8A524D-3CD9-45FE-B0EB-0F06A6A78E45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF8A524D-3CD9-45FE-B0EB-0F06A6A78E45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF8A524D-3CD9-45FE-B0EB-0F06A6A78E45}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DF8A524D-3CD9-45FE-B0EB-0F06A6A78E45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF8A524D-3CD9-45FE-B0EB-0F06A6A78E45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF8A524D-3CD9-45FE-B0EB-0F06A6A78E45}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3AEDF46E-EA1A-4B51-98A7-7B3962F741F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AEDF46E-EA1A-4B51-98A7-7B3962F741F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AEDF46E-EA1A-4B51-98A7-7B3962F741F2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3AEDF46E-EA1A-4B51-98A7-7B3962F741F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AEDF46E-EA1A-4B51-98A7-7B3962F741F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AEDF46E-EA1A-4B51-98A7-7B3962F741F2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DBEA5832-039A-4CDA-94EE-0D217A1A83D6}
+	EndGlobalSection
+EndGlobal
