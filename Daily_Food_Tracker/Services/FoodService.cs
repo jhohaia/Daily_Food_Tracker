@@ -8,17 +8,17 @@
 //using Xamarin.Essentials;
 //using SQLite;
 //using Daily_Food_Tracker.Models;
+//using Daily_Food_Tracker.Services;
 
 //namespace Daily_Food_Tracker.Services
 //{
-//    class FoodService
+//    public class FoodService
 //    {
-//        static SQLiteAsyncConnection db;
+//        static SQLiteAsyncConnection dba;
 //        public static async Task Init()
 //        {
-//            if (db != null)
-//            return;
-        
+//            if (dba != null) return;
+
 //            var databasepath = Path.Combine(FileSystem.AppDataDirectory, "MyDatabase");
 
 //            var db = new SQLiteAsyncConnection(databasepath);
@@ -28,22 +28,28 @@
 
 //        public static async Task AddFood(string FoodID, string FoodName)
 //        {
+//            var image = "https://grandseasonscoquitlam.com/img/placeholders/xcomfort_food_placeholder.png,qv=1.pagespeed.ic.x100Yi-Swz.png";
 //            await Init();
-//            new food = new Food
+//            var food = new Food
 //            {
-//                FoodID = foodid,
-//                FoodName = foodname,
-//                Alcohol = alcohol,              
-//            }
-//            var id = await db.InsertAsync(food);
+//                FoodID = FoodID,
+//                FoodName = FoodName,
+//                Image = image
+//            };
+//            var id = await dba.InsertAsync(food);
 //        }
-//        public static async Task RemoveFood(string FoodID, string FoodName)
+//        public static async Task RemoveFood(int id)
 //        {
 //            await Init();
+
+//            await dba.DeleteAsync<Food>(id);
 //        }
-//        public static async Task GetFood(string FoodID, string FoodName)
+//        public static async Task<IEnumerable<Food>> GetFood()
 //        {
 //            await Init();
+
+//            await dba.Table<Food>().ToListAsync();
+//            return food;
 //        }
 //    }
 //}
