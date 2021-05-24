@@ -7,7 +7,8 @@ namespace Daily_Food_Tracker.Models
 {
     public class Food
     {
-        //[PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement]
+        public int id { get; set; }
         public string FoodID { get; set; }
         public string FoodName { get; set; }
         public double Alcohol { get; set; }
@@ -28,7 +29,6 @@ namespace Daily_Food_Tracker.Models
         public double Sugars { get; set; }
         public double Water { get; set; }
         public double Zinc { get; set; }
-
         public string Image { get; set; }
     }
 }
