@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:vm="clr-namespace:Daily_Food_Tracker.ViewModels"
+             xmlns:vm="clr-namespace:Daily_Food_Tracker.ViewModels" xmlns:model="clr-namespace:Daily_Food_Tracker.Models"
              x:Class="Daily_Food_Tracker.Views.HomePage"
              Title="{Binding Title}">
 
@@ -9,21 +9,56 @@
         <vm:HomePageViewModel />
     </ContentPage.BindingContext>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <ScrollView Grid.Row="1">
+    <ListView 
+              ItemSelected="ListView_ItemSelected"
+              ItemTapped="ListView_ItemTapped"
+              CachingStrategy="RecycleElement"
+              BackgroundColor="Transparent"
+              ItemsSource="{Binding Food}"
+              HasUnevenRows="True"
+              SeparatorVisibility="None"
+              IsPullToRefreshEnabled="True"
+              IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+              RefreshCommand="{Binding RefreshCommand}"
+              RefreshControlColor="Green">
+        <ListView.Header>
             <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <Label Text="Welcome, User" FontSize="Title"/>
+                <Label Text="Welcome, User" FontSize="Title" FontAttributes="Bold"/>
                 <Label Text="Your daily calory goal progress:" FontSize="16" Padding="0,0,0,0" />
                 <ProgressBar Progress="0.5" />
-                <Label FontSize="16" Padding="0,24,0,0" Text="Breakfast +"/>
-                <Label FontSize="16" Padding="0,24,0,0" Text="Lunch +"/>
-                <Label FontSize="16" Padding="0,24,0,0" Text="Dinner +"/>
-                <Label FontSize="16" Padding="0,24,0,0" Text="Snacks +"/>
+                <Label Text="Pull down to Refresh" FontSize="12" Padding="0,0,0,0" />
             </StackLayout>
-        </ScrollView>
-    </Grid>
+        </ListView.Header>
+        <ListView.ItemTemplate >
+            <DataTemplate x:DataType="model:Food">
+                <ViewCell >
+                    <Grid Padding="10">
+                        <Frame CornerRadius="20" HasShadow="True">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding FoodID}"
+                                       WidthRequest="100"/>
+                                <StackLayout VerticalOptions="Center">
+                                    <Label Text='Name:'
+                                       FontSize="Large"
+                                       VerticalOptions="Center"/>
+                                    <Label Text="Calories: "
+                                       FontSize="Large"
+                                       VerticalOptions="Center"/>
+                                </StackLayout>
+                                <StackLayout VerticalOptions="Center">
+                                    <Label Text='{Binding FoodName}'
+                                       FontSize="Large"
+                                       VerticalOptions="Center"/>
+                                    <Label Text="{Binding Calories}"
+                                       FontSize="Large"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>

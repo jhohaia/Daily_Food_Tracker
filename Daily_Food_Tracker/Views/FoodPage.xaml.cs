@@ -26,13 +26,13 @@ namespace Daily_Food_Tracker.Views
             await DisplayAlert("Food Added", food.FoodName, "OK");
         }
 
-        private  void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            //var food = ((ListView)sender).SelectedItem as Food;
-            //if (food == null)
-            //    return;
+            var food = ((ListView)sender).SelectedItem as Food;
+            if (food == null)
+                return;
 
-            //await DisplayAlert("Food Selected", food.FoodName, "OK");
+            await DisplayAlert("Food Selected",food.FoodName,"OK");
 
         }
 

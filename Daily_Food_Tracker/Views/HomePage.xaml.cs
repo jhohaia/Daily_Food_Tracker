@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Daily_Food_Tracker.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,20 @@ namespace Daily_Food_Tracker.Views
         public HomePage()
         {
             InitializeComponent();
+        }
+
+        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            ((ListView)sender).SelectedItem = null;
+        }
+
+        private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var food = ((ListView)sender).SelectedItem as Food;
+            if (food == null)
+                return;
+
+            await DisplayAlert("Food Selected", food.FoodName, "OK");
         }
     }
 }

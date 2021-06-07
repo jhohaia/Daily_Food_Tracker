@@ -1,7 +1,9 @@
 ﻿using Daily_Food_Tracker.Services;
 using Daily_Food_Tracker.Views;
 using System;
+using System.IO;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
 
 namespace Daily_Food_Tracker
@@ -18,6 +20,7 @@ namespace Daily_Food_Tracker
 
         protected override void OnStart()
         {
+           
         }
 
         protected override void OnSleep()

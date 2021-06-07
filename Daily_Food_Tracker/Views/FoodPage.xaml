@@ -1,42 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:vm="clr-namespace:Daily_Food_Tracker.ViewModels"
+             xmlns:vm="clr-namespace:Daily_Food_Tracker.ViewModels" xmlns:model="clr-namespace:Daily_Food_Tracker.Models"
              x:Class="Daily_Food_Tracker.Views.FoodPage"
              Title="{Binding Title}">
 
     <ContentPage.BindingContext>
         <vm:FoodPageViewModel />
     </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddCommand}"/>
+        <ToolbarItem Text="Delete"/>
+    </ContentPage.ToolbarItems>
     
     <ListView 
               ItemSelected="ListView_ItemSelected"
               ItemTapped="ListView_ItemTapped"
               CachingStrategy="RecycleElement"
               BackgroundColor="Transparent"
-              ItemsSource="{Binding FoodGroups}"
-              IsGroupingEnabled="True"
-              GroupDisplayBinding="{Binding Key}"
+              ItemsSource="{Binding Food}"
               HasUnevenRows="True"
               SeparatorVisibility="None"
               IsPullToRefreshEnabled="True"
               IsRefreshing="{Binding IsBusy, Mode=OneWay}"
               RefreshCommand="{Binding RefreshCommand}"
               RefreshControlColor="Green">
-        
-             
+        <ListView.Header>
+            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                <Label Text="Your Foods" FontSize="Title" FontAttributes="Bold"/>
+                <Label Text="Select or Add your own Foods" FontSize="16" Padding="0,0,0,0" />
+                <Label Text="Pull down to Refresh" FontSize="14" Padding="0,0,0,0" />
+            </StackLayout>
+        </ListView.Header>
         <ListView.ItemTemplate>
-            <DataTemplate>
+            <DataTemplate x:DataType="model:Food">
                 <ViewCell>
-                    <ViewCell.ContextActions>
-                        <MenuItem Text="Favourite" Clicked="MenuItem_Clicked"/>
-                        <MenuItem Text="Delete" IsDestructive="True"/>
-                    </ViewCell.ContextActions>
+                    <!---  <ViewCell.ContextActions>
+                         <MenuItem Text="Delete" 
+                                  IsDestructive="True"
+                                  Command="{Binding Source={x:Reference FoodPage}
+                                  ,Path=BindingContext.RemoveCommand}"
+                                  CommandParameter="{Binding .}"/> 
+                    </ViewCell.ContextActions> -->
+                    
                     <Grid Padding="10">
                         <Frame CornerRadius="20"
                                HasShadow="True">
                             <StackLayout Orientation="Horizontal">
-                                <Image Source="{Binding Image}"
+                                <Image Source="{Binding FoodID}"
                                        WidthRequest="100"/>
                                 <StackLayout VerticalOptions="Center">
                                     <Label Text='Name:'
