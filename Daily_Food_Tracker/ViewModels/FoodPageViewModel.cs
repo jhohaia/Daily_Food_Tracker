@@ -43,31 +43,31 @@ namespace Daily_Food_Tracker.ViewModels
         }
         async Task Add()
         {
-            var foodid = await App.Current.MainPage.DisplayPromptAsync("ID", "ID");
+            var foodid = await App.Current.MainPage.DisplayPromptAsync("FoodID", "FoodID");
             var foodname = await App.Current.MainPage.DisplayPromptAsync("Name", "Name");
-            var alcohol = await App.Current.MainPage.DisplayPromptAsync("Alcohol", "Alcohol");
-            var carbohydrates = await App.Current.MainPage.DisplayPromptAsync("Carbohydrates", "Carbohydrates");
-            var calcium = await App.Current.MainPage.DisplayPromptAsync("Calcium", "Calcium");
-            var cholesterol = await App.Current.MainPage.DisplayPromptAsync("Cholesterol", "Cholesterol");
+            //var alcohol = await App.Current.MainPage.DisplayPromptAsync("Alcohol", "Alcohol");
+            //var carbohydrates = await App.Current.MainPage.DisplayPromptAsync("Carbohydrates", "Carbohydrates");
+            //var calcium = await App.Current.MainPage.DisplayPromptAsync("Calcium", "Calcium");
+            //var cholesterol = await App.Current.MainPage.DisplayPromptAsync("Cholesterol", "Cholesterol");
             var calories = await App.Current.MainPage.DisplayPromptAsync("Calories", "Calories");
-            var kilojule = await App.Current.MainPage.DisplayPromptAsync("KiloJule", "KiloJule");
-            var fat = await App.Current.MainPage.DisplayPromptAsync("Fat", "Fat");
-            var glucose = await App.Current.MainPage.DisplayPromptAsync("Glucose", "Glucose");
-            var iron = await App.Current.MainPage.DisplayPromptAsync("Iron", "Iron");
-            var lactose = await App.Current.MainPage.DisplayPromptAsync("Lactose", "Lactose");
-            var magnesium = await App.Current.MainPage.DisplayPromptAsync("Magnesium", "Magnesium");
-            var potassium = await App.Current.MainPage.DisplayPromptAsync("Potassium", "Potassium");
-            var selenium = await App.Current.MainPage.DisplayPromptAsync("Selenium", "Selenium");
-            var sodium = await App.Current.MainPage.DisplayPromptAsync("Sodium", "Sodium");
-            var starch = await App.Current.MainPage.DisplayPromptAsync("Starch", "Starch");
-            var sugars = await App.Current.MainPage.DisplayPromptAsync("Sugars", "Sugars");
-            var water = await App.Current.MainPage.DisplayPromptAsync("Water", "Water");
-            var zinc = await App.Current.MainPage.DisplayPromptAsync("Zinc", "Zinc");
+            //var kilojule = await App.Current.MainPage.DisplayPromptAsync("KiloJule", "KiloJule");
+            //var fat = await App.Current.MainPage.DisplayPromptAsync("Fat", "Fat");
+            //var glucose = await App.Current.MainPage.DisplayPromptAsync("Glucose", "Glucose");
+            //var iron = await App.Current.MainPage.DisplayPromptAsync("Iron", "Iron");
+            //var lactose = await App.Current.MainPage.DisplayPromptAsync("Lactose", "Lactose");
+            //var magnesium = await App.Current.MainPage.DisplayPromptAsync("Magnesium", "Magnesium");
+            //var potassium = await App.Current.MainPage.DisplayPromptAsync("Potassium", "Potassium");
+            //var selenium = await App.Current.MainPage.DisplayPromptAsync("Selenium", "Selenium");
+            //var sodium = await App.Current.MainPage.DisplayPromptAsync("Sodium", "Sodium");
+            //var starch = await App.Current.MainPage.DisplayPromptAsync("Starch", "Starch");
+            //var sugars = await App.Current.MainPage.DisplayPromptAsync("Sugars", "Sugars");
+            //var water = await App.Current.MainPage.DisplayPromptAsync("Water", "Water");
+            //var zinc = await App.Current.MainPage.DisplayPromptAsync("Zinc", "Zinc");
 
-            await FoodService.AddFood(foodid, foodname, alcohol, carbohydrates,
-                calcium, cholesterol, calories, kilojule, fat, glucose, iron,
-                lactose, magnesium, potassium, selenium, sodium, starch, sugars,
-                water, zinc) ;
+            await FoodService.AddFood(foodid, foodname, calories);
+                //calcium, cholesterol, calories, kilojule, fat, glucose, iron,
+                //lactose, magnesium, potassium, selenium, sodium, starch, sugars,
+                //water, zinc) ;
             await Refresh();
         }
 
@@ -86,5 +86,6 @@ namespace Daily_Food_Tracker.ViewModels
             var foods = await FoodService.GetFood();
             Food.AddRange(foods);
         }
+
     }
 }

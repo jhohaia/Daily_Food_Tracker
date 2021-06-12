@@ -20,22 +20,22 @@ namespace Daily_Food_Tracker.Droid
             LoadApplication(new App());
 
             // db
-            string DB_FILENAME = "FoodDatabase.db";
-            string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            string dbPath = Path.Combine(folderPath, DB_FILENAME);
-            //Environment.GetFolderPath (Environment.SpecialFolder.Personal)
-
-            if (System.IO.File.Exists(dbPath))
-                System.IO.File.Delete(dbPath);
-
-            using BinaryReader br = new BinaryReader(Assets.Open(DB_FILENAME));
-            using (BinaryWriter bw = new BinaryWriter(new FileStream(dbPath, FileMode.Create)))
+            string dbName = "foodsql.db";
+            string dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), dbName);
+            // Check if your DB has already been extracted.
+            if (!File.Exists(dbPath))
             {
-                byte[] buffer = new byte[2048];
-                int len = 0;
-                while ((len = br.Read(buffer, 0, buffer.Length)) > 0)
+                using (BinaryReader br = new BinaryReader(Android.App.Application.Context.Assets.Open(dbName)))
                 {
-                    bw.Write(buffer, 0, len);
+                    using (BinaryWriter bw = new BinaryWriter(new FileStream(dbPath, FileMode.Create)))
+                    {
+                        byte[] buffer = new byte[2048];
+                        int len = 0;
+                        while ((len = br.Read(buffer, 0, buffer.Length)) > 0)
+                        {
+                            bw.Write(buffer, 0, len);
+                        }
+                    }
                 }
             }
         }

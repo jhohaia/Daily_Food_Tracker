@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:vm="clr-namespace:Daily_Food_Tracker.ViewModels" xmlns:model="clr-namespace:Daily_Food_Tracker.Models"
              x:Class="Daily_Food_Tracker.Views.FoodPage"
+             x:Name="FoodPages"
              Title="{Binding Title}">
 
     <ContentPage.BindingContext>
@@ -36,14 +37,13 @@
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:Food">
                 <ViewCell>
-                    <!---  <ViewCell.ContextActions>
-                         <MenuItem Text="Delete" 
-                                  IsDestructive="True"
-                                  Command="{Binding Source={x:Reference FoodPage}
+                    <ViewCell.ContextActions>
+                        <SwipeItem Command="{Binding Source={x:Reference FoodPages}
                                   ,Path=BindingContext.RemoveCommand}"
-                                  CommandParameter="{Binding .}"/> 
-                    </ViewCell.ContextActions> -->
-                    
+                                  CommandParameter="{Binding .}"
+                                    Text="Delete" 
+                                  IsDestructive="True"/>
+                    </ViewCell.ContextActions>
                     <Grid Padding="10">
                         <Frame CornerRadius="20"
                                HasShadow="True">
