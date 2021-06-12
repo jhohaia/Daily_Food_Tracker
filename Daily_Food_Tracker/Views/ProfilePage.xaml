@@ -14,19 +14,16 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <ScrollView Grid.Row="1">
-            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <Label Text="Welcome, User" FontSize="Title" />
-                <Label Text="Please enter and save your details"/>
-                <Label FontSize="16" Padding="0,0,0,0" Text="Name: "/>
-                <Entry FontSize="16" Text=""/>
-                <Label FontSize="16" Padding="0,24,0,0" Text="Age"/>
-                <Entry FontSize="16" Text=""/>
-                <Label FontSize="16" Padding="0,24,0,0" Text="Height"/>
-                <Entry FontSize="16" Text=""/>
-                <Label FontSize="16" Padding="0,24,0,0" Text="Weight"/>
-                <Entry FontSize="16" Text=""/>                
-                <Label FontSize="16" Padding="0,24,0,0" Text="Daily Goal"/>
-                <Entry FontSize="16" Text=""/>
+            <StackLayout>
+                <!--<Label Text="Welcome, User" FontSize="Title" />
+                <Label Text="Please enter and save your details"/>-->
+            <Label FontSize="16" Padding="0,0,0,0" Text="Name"/>
+            <Entry x:Name="NameInput" FontSize="16" Text=""/>
+            <Entry x:Name="AgeInput" FontSize="16" Text=""/>
+            <Entry x:Name="HeightInput" FontSize="16" Text=""/>
+            <Entry x:Name="WeightInput" FontSize="16" Text=""/>
+            <Entry x:Name="DailyGoalInput" FontSize="16" Text=""/>
+            <Button x:Name="saveButton" Clicked="saveButton_Clicked" Text="Save"/>
             </StackLayout>
         </ScrollView>
     </Grid>

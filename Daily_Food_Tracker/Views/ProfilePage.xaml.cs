@@ -16,5 +16,19 @@ namespace Daily_Food_Tracker.Views
         {
             InitializeComponent();
         }
+        void saveButton_Clicked(object sender, System.EventArgs e)
+        {
+            ////string conString = "H:\YEAR3\PersonalInfo.db";
+            //User user = new User()
+            //{
+            //    Name = NameInput.Text,
+            //    Age = AgeInput.Text,
+            //    Height = HeightInput.Text,
+            //    Weight = WeightInput.Text,
+            //    DailyGoal = DailyGoalInput.Text,
+            //};
+
+            //using (SQLite.SQLiteConnection conn = new SQLiteConnection(conString)) ;
+        }
     }
 }
